@@ -25,10 +25,6 @@ function App() {
       <div className="LogoContainer position-relative">
         <div className="imgBg"></div>
         <img className="Logo" src={logo} width="800rem" alt="Logo" />
-        <div className="position-absolute">A</div>
-        <div>A</div>
-        <div>A</div>
-        <div>A</div>
       </div>
     </div>
   );
