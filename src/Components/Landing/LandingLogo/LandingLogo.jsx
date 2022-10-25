@@ -1,21 +1,34 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAnglesRight, faAnglesLeft } from "@fortawesome/free-solid-svg-icons";
 import logo from "../../../logo.svg";
-import { Container } from "react-bootstrap";
 
 function LandingLogo() {
   return (
     <div>
-      <div className="LogoContainer position-relative">
+      <div className="LogoContainer">
         <div className="imgBg"></div>
-        <img className="Logo" src={logo} width="800rem" alt="Logo" />
+
+        <img className="Logo" src={logo} alt="Logo" />
+
+        <div className="icons">
+          <div className="newsLink">
+            <p>News</p>
+            <FontAwesomeIcon icon={faAnglesLeft} />
+          </div>
+          <div className="gamesLink">
+            Games
+            <FontAwesomeIcon icon={faAnglesLeft} />
+          </div>
+          <div className="galleryLink">
+            <FontAwesomeIcon icon={faAnglesRight} />
+            Gallery
+          </div>
+          <div className="contactLink">
+            <FontAwesomeIcon icon={faAnglesRight} />
+            Contact
+          </div>
+        </div>
       </div>
-      <Container className="text-center py-5">
-        <h2>
-          <strong>
-            {/* Passion, hardwork, and the hope that you will enjoy the ride. */}
-            Coming Soon.
-          </strong>
-        </h2>
-      </Container>
     </div>
   );
 }

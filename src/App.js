@@ -20,14 +20,14 @@ function App() {
 
   return (
     <div className="App">
-      {/* <NavBar /> */}
+      <NavBar />
       <Routes>
         <Route path="/about" element={<About />} />
         <Route path="/" element={<LandingContainer />} />
         <Route path="*" element={<div>NO CONTENT: 404</div>} />
       </Routes>
 
-      {/* <Contact /> */}
+      <Contact />
     </div>
   );
 }
