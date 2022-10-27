@@ -1,31 +1,43 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAnglesRight, faAnglesLeft } from "@fortawesome/free-solid-svg-icons";
 import logo from "../../../logo.svg";
+import { useState } from "react";
 
 function LandingLogo() {
+  const [active, setActive] = useState("");
+  function triggerAnimation(e) {
+    // console.log(e.target.parentElement.className);
+    setActive(e.currentTarget.className);
+  }
+
   return (
     <div>
       <div className="LogoContainer">
         <div className="imgBg"></div>
 
-        <img className="Logo" src={logo} alt="Logo" />
+        <img
+          className={active ? `${active} Logo` : "Logo"}
+          src={logo}
+          alt="Logo"
+          // width={"5000px"}
+        />
 
         <div className="icons">
-          <div className="newsLink">
+          <div className="newsLink" onClick={triggerAnimation}>
             <p>News</p>
             <FontAwesomeIcon icon={faAnglesLeft} />
           </div>
-          <div className="gamesLink">
-            Games
+          <div className="gamesLink" onClick={triggerAnimation}>
+            <p>Games</p>
             <FontAwesomeIcon icon={faAnglesLeft} />
           </div>
-          <div className="galleryLink">
+          <div className="galleryLink" onClick={triggerAnimation}>
             <FontAwesomeIcon icon={faAnglesRight} />
-            Gallery
+            <p>Gallery</p>
           </div>
-          <div className="contactLink">
+          <div className="contactLink" onClick={triggerAnimation}>
             <FontAwesomeIcon icon={faAnglesRight} />
-            Contact
+            <p>Contact</p>
           </div>
         </div>
       </div>

@@ -1,6 +1,10 @@
 @import "~@csstools/normalize.css";
 @import "~bootstrap/scss/bootstrap";
 
+:root {
+  --scale: 2;
+}
+
 body {
   font-family: "Karla", sans-serif;
   color: #fff;
@@ -51,7 +55,6 @@ body {
     display: block;
     position: relative;
     min-height: 100vh;
-    // padding-top: 2rem;
     background-image: linear-gradient(
         90deg,
         rgba(75, 100, 181, 1) 0%,
@@ -63,44 +66,89 @@ body {
       max-height: 80vh;
       position: absolute;
       top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      right: 50%;
+      transform: translate(50%, -50%);
+      border: 3px solid black;
+      &.newsLink {
+        animation: top-left 0.8s ease-in-out;
+        transform: translate(100%, 0%) scale(var(--scale));
+      }
+      &.gamesLink {
+        animation: bottom-left 0.8s ease-in-out;
+        transform: translate(100%, -100%) scale(var(--scale));
+      }
+      &.galleryLink {
+        animation: top-right 0.8s ease-in-out;
+        transform: translate(0%, 0%) scale(var(--scale));
+      }
+      &.contactLink {
+        animation: bottom-right 0.8s ease-in-out;
+        transform: translate(0%, -100%) scale(var(--scale));
+      }
     }
     .icons {
       display: block;
       height: 80vh;
-      aspect-ratio: 1/1;
+      // aspect-ratio: 1/1;
+      width: 100vh;
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       svg {
         color: white;
-        scale: 1;
+        scale: 1.5;
+        vertical-align: middle;
+        padding: 1rem;
+      }
+      p {
+        font-size: 2rem;
+        display: inline;
+        vertical-align: middle;
+        visibility: hidden;
       }
       .newsLink {
         position: absolute;
         top: 15%;
-        right: 85%;
-        p {
-          position: absolute;
-          right: 0;
+        right: 80%;
+        &:hover {
+          p {
+            visibility: visible;
+          }
         }
+        // &:active {
+        //   animation: logo-zoom 3s ease-in-out infinite alternate;
+        // }
       }
       .galleryLink {
         position: absolute;
         top: 15%;
-        left: 85%;
+        left: 80%;
+        &:hover {
+          p {
+            visibility: visible;
+          }
+        }
       }
       .gamesLink {
         position: absolute;
         bottom: 20%;
-        right: 80%;
+        right: 75%;
+        &:hover {
+          p {
+            visibility: visible;
+          }
+        }
       }
       .contactLink {
         position: absolute;
         bottom: 20%;
-        left: 80%;
+        left: 75%;
+        &:hover {
+          p {
+            visibility: visible;
+          }
+        }
       }
     }
     .imgBg {
@@ -118,5 +166,45 @@ body {
         rgba(75, 100, 181, 1) 0%,
         rgba(221, 81, 126, 1) 100%
       );
+  }
+}
+
+@keyframes top-left {
+  //++
+  from {
+    transform: translate(50%, -50%) scale(1);
+  }
+  to {
+    transform: translate(100%, 0%) scale(var(--scale));
+  }
+}
+
+@keyframes top-right {
+  //-+
+  from {
+    transform: translate(50%, -50%) scale(1);
+  }
+  to {
+    transform: translate(0%, 0%) scale(var(--scale));
+  }
+}
+
+@keyframes bottom-left {
+  //+-
+  from {
+    transform: translate(50%, -50%) scale(1);
+  }
+  to {
+    transform: translate(100%, -100%) scale(var(--scale));
+  }
+}
+
+@keyframes bottom-right {
+  //--
+  from {
+    transform: translate(50%, -50%) scale(1);
+  }
+  to {
+    transform: translate(0%, -100%) scale(var(--scale));
   }
 }
